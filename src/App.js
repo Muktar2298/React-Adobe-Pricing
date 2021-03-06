@@ -48,6 +48,7 @@
 // }
 
 // --Create Multiple Component from an array of objects --//
+import React,{useState} from 'react';
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -65,6 +66,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h4>Bangaldesh Cricketers List :</h4>
+
+        {/* --Component State -- */}
+        <Counter>
+
+        </Counter>
 
         {/* --React Dynamic Way -- */}
         <ul>
@@ -91,5 +97,35 @@ function App() {
 }
 
 // -- Create a Component --//
+function Counter(){
+  // --Create or Declare  a State --//
+  const [count,setCount] = useState(0);
+
+  // --Increse Button --//
+  const handleIncrese = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+  };
+
+
+  // --Decrece Button --//
+  // const handleDecrece = () =>{
+  //   const newCount = count -1;
+  //   setCount(newCount);
+  // }
+  const handleDecrece = () => setCount(count - 1);
+
+
+  return(
+    <div>
+      <h1>Count : {count}</h1>
+      <button onClick={handleIncrese}>Increse</button>
+      {/* <button onClick={() => setCount(count + 1)}>Increse</button> */}
+
+      <button onClick = {handleDecrece}>Decrece</button>
+      
+    </div>
+  )
+}
 
 export default App;
